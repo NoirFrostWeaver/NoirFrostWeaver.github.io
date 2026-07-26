@@ -24,7 +24,6 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-
         /* Sticky nav */
         nav {
             background: rgba(8, 12, 24, 0.75);
@@ -49,7 +48,6 @@
             color: #ffffff;
             text-shadow: 0 0 10px rgba(120, 180, 255, 0.85);
         }
-
         /* HOME — pure image hero */
         #home {
             min-height: 100vh;
@@ -111,7 +109,6 @@
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
         }
-
         /* Content sections */
         section.content {
             max-width: 720px;
@@ -146,8 +143,7 @@
             font-size: 0.98rem;
             margin-top: 1.4rem !important;
         }
-
-        /* Links */
+        /* Links — centered text */
         .links-list {
             list-style: none;
             padding: 0;
@@ -159,7 +155,7 @@
         .links-list a {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
             color: #cce6ff;
             text-decoration: none;
             font-size: 1.05rem;
@@ -178,10 +174,8 @@
         }
         .platform {
             font-weight: 600;
-            min-width: 78px;
             color: #9ec4ff;
         }
-
         /* Footer spacer */
         .bottom-space {
             height: 2rem;
@@ -194,7 +188,6 @@
         <a href="#about">About</a>
         <a href="#links">Links</a>
     </nav>
-
     <!-- HOME: just the image -->
     <section id="home">
         <div class="hero-content">
@@ -203,7 +196,6 @@
         </div>
         <div class="scroll-hint">↓ Scroll</div>
     </section>
-
     <!-- ABOUT -->
     <section id="about" class="content">
         <h2>About</h2>
@@ -225,7 +217,6 @@
         </p>
         <p class="tagline">Chill streams. Real conversations. Zero drama.</p>
     </section>
-
     <!-- LINKS -->
     <section id="links" class="content">
         <h2>Links</h2>
@@ -247,8 +238,6 @@
             </li>
         </ul>
     </section>
-
     <div class="bottom-space"></div>
 </body>
 </html>
-Read file
