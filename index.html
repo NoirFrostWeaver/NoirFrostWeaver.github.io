@@ -12,137 +12,245 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #e8f0ff;
             min-height: 100vh;
-            background-image: url('Screenshot 2026-07-25 173030.png');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        header {
-            background: rgba(0, 0, 0, 0.65);
-            color: #cce6ff;
-            padding: 1.2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(100, 160, 255, 0.35);
-            backdrop-filter: blur(4px);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 12px rgba(100, 180, 255, 0.6);
-        }
+
+        /* Sticky nav */
         nav {
-            background: rgba(20, 25, 40, 0.7);
-            padding: 0.6rem;
+            background: rgba(8, 12, 24, 0.75);
+            padding: 0.7rem 1rem;
             text-align: center;
             border-bottom: 1px solid rgba(100, 160, 255, 0.25);
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 20;
         }
         nav a {
             color: #b8d4ff;
-            margin: 0 15px;
+            margin: 0 18px;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
         nav a:hover {
             color: #ffffff;
-            text-decoration: underline;
-            text-shadow: 0 0 8px rgba(120, 180, 255, 0.8);
+            text-shadow: 0 0 10px rgba(120, 180, 255, 0.85);
         }
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 24px 28px;
-            background: rgba(0, 0, 0, 0.55);
-            border-radius: 12px;
-            border: 1px solid rgba(100, 160, 255, 0.25);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+        /* HOME — pure image hero */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
         }
-        main h2 {
-            margin-top: 0;
+        #home::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.15) 0%,
+                rgba(0, 0, 0, 0.05) 40%,
+                rgba(0, 0, 0, 0.55) 100%
+            );
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+        .hero-content h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #eaf4ff;
+            text-shadow:
+                0 0 20px rgba(100, 180, 255, 0.7),
+                0 4px 24px rgba(0, 0, 0, 0.8);
+        }
+        .hero-content p {
+            margin: 0.6rem 0 0;
+            font-size: 1.05rem;
+            color: #a8c8f0;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: rgba(180, 210, 255, 0.7);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Content sections */
+        section.content {
+            max-width: 720px;
+            margin: 0 auto 3.5rem;
+            padding: 2rem 2.2rem;
+            background: rgba(4, 8, 18, 0.72);
+            border-radius: 14px;
+            border: 1px solid rgba(100, 160, 255, 0.28);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        }
+        section.content h2 {
+            margin: 0 0 1.1rem;
+            font-size: 1.45rem;
             color: #a8d0ff;
-            text-shadow: 0 0 8px rgba(100, 160, 255, 0.4);
-            border-bottom: 1px solid rgba(100, 160, 255, 0.3);
-            padding-bottom: 0.4rem;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 10px rgba(100, 160, 255, 0.35);
+            border-bottom: 1px solid rgba(100, 160, 255, 0.28);
+            padding-bottom: 0.5rem;
         }
+        section.content p {
+            margin: 0 0 1.1rem;
+            color: #d0e0f8;
+            font-size: 1.05rem;
+        }
+        section.content p:last-child {
+            margin-bottom: 0;
+        }
+        .tagline {
+            color: #8eb8e8;
+            font-style: italic;
+            font-size: 0.98rem;
+            margin-top: 1.4rem !important;
+        }
+
+        /* Links */
         .links-list {
             list-style: none;
             padding: 0;
-            margin: 1.5rem 0 0;
-        }
-        .links-list li {
-            margin-bottom: 1rem;
+            margin: 1.4rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
         }
         .links-list a {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: #cce6ff;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.6rem 1rem;
-            background: rgba(30, 50, 90, 0.45);
+            font-size: 1.05rem;
+            padding: 0.75rem 1.15rem;
+            background: rgba(25, 45, 85, 0.5);
             border: 1px solid rgba(100, 160, 255, 0.35);
-            border-radius: 8px;
-            transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 10px;
+            transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
         }
         .links-list a:hover {
-            background: rgba(50, 80, 140, 0.55);
-            border-color: rgba(140, 190, 255, 0.6);
-            box-shadow: 0 0 16px rgba(100, 180, 255, 0.35);
+            background: rgba(45, 75, 130, 0.6);
+            border-color: rgba(140, 190, 255, 0.65);
+            box-shadow: 0 0 18px rgba(100, 180, 255, 0.3);
             color: #ffffff;
+            transform: translateY(-1px);
         }
         .platform {
             font-weight: 600;
-            min-width: 70px;
+            min-width: 78px;
+            color: #9ec4ff;
+        }
+
+        /* Footer spacer */
+        .bottom-space {
+            height: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>NoirFrostWeaver</h1>
-    </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#links">Links</a>
     </nav>
-    <main>
-        <section id="links">
-            <h2>Links</h2>
-            <ul class="links-list">
-                <li>
-                    <a href="https://www.youtube.com/@NoirFrostWeaver" target="_blank" rel="noopener noreferrer">
-                        <span class="platform">YouTube</span>
-                        <span>@NoirFrostWeaver</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@noirfrostweaver?_r=1&_t=ZP-98Jp4WEjSiF" target="_blank" rel="noopener noreferrer">
-                        <span class="platform">TikTok</span>
-                        <span>@noirfrostweaver</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.twitch.tv/noirfrostweaver" target="_blank" rel="noopener noreferrer">
-                        <span class="platform">Twitch</span>
-                        <span>noirfrostweaver</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main>
+
+    <!-- HOME: just the image -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>NoirFrostWeaver</h1>
+            <p>Streamer · Chill vibes only</p>
+        </div>
+        <div class="scroll-hint">↓ Scroll</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="content">
+        <h2>About</h2>
+        <p>
+            Hey — I'm <strong>NoirFrost</strong>.
+        </p>
+        <p>
+            I stream, hang out, and talk with friends. Whether we're playing games,
+            just chilling in chat, or wandering into whatever random topic shows up,
+            the goal is simple: good company and good times.
+        </p>
+        <p>
+            Drama doesn't belong here. If you're carrying it, leave it at the door.
+            This is a space for relaxing, laughing, and connecting — nothing more,
+            nothing less.
+        </p>
+        <p>
+            Drop by a stream sometime. I'm glad you're here.
+        </p>
+        <p class="tagline">Chill streams. Real conversations. Zero drama.</p>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="content">
+        <h2>Links</h2>
+        <ul class="links-list">
+            <li>
+                <a href="https://www.youtube.com/@NoirFrostWeaver" target="_blank" rel="noopener noreferrer">
+                    <span class="platform">YouTube</span>
+                    <span>@NoirFrostWeaver</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@noirfrostweaver?_r=1&_t=ZP-98Jp4WEjSiF" target="_blank" rel="noopener noreferrer">
+                    <span class="platform">TikTok</span>
+                    <span>@noirfrostweaver</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitch.tv/noirfrostweaver" target="_blank" rel="noopener noreferrer">
+                    <span class="platform">Twitch</span>
+                    <span>noirfrostweaver</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <div class="bottom-space"></div>
 </body>
 </html>
