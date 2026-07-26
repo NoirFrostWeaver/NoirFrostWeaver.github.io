@@ -5,36 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoirFrost Center</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
+            color: #e8f0ff;
+            min-height: 100vh;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         header {
-            background: #333;
-            color: white;
-            padding: 1rem;
+            background: rgba(0, 0, 0, 0.65);
+            color: #cce6ff;
+            padding: 1.2rem;
             text-align: center;
+            border-bottom: 1px solid rgba(100, 160, 255, 0.35);
+            backdrop-filter: blur(4px);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 12px rgba(100, 180, 255, 0.6);
         }
         nav {
-            background: #444;
-            padding: 0.5rem;
+            background: rgba(20, 25, 40, 0.7);
+            padding: 0.6rem;
             text-align: center;
+            border-bottom: 1px solid rgba(100, 160, 255, 0.25);
+            backdrop-filter: blur(4px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         nav a {
-            color: white;
+            color: #b8d4ff;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
         nav a:hover {
+            color: #ffffff;
             text-decoration: underline;
+            text-shadow: 0 0 8px rgba(120, 180, 255, 0.8);
         }
         main {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
+            margin: 40px auto;
+            padding: 24px 28px;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 12px;
+            border: 1px solid rgba(100, 160, 255, 0.25);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        main h2 {
+            margin-top: 0;
+            color: #a8d0ff;
+            text-shadow: 0 0 8px rgba(100, 160, 255, 0.4);
+            border-bottom: 1px solid rgba(100, 160, 255, 0.3);
+            padding-bottom: 0.4rem;
+        }
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+        }
+        .links-list li {
+            margin-bottom: 1rem;
+        }
+        .links-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #cce6ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.6rem 1rem;
+            background: rgba(30, 50, 90, 0.45);
+            border: 1px solid rgba(100, 160, 255, 0.35);
+            border-radius: 8px;
+            transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .links-list a:hover {
+            background: rgba(50, 80, 140, 0.55);
+            border-color: rgba(140, 190, 255, 0.6);
+            box-shadow: 0 0 16px rgba(100, 180, 255, 0.35);
+            color: #ffffff;
+        }
+        .platform {
+            font-weight: 600;
+            min-width: 70px;
         }
     </style>
 </head>
@@ -42,15 +114,35 @@
     <header>
         <h1>NoirFrostWeaver</h1>
     </header>
-
     <nav>
         <a href="#">Home</a>
         <a href="#">About</a>
-        <a href="#">Links</a>
+        <a href="#links">Links</a>
     </nav>
-
     <main>
-        
+        <section id="links">
+            <h2>Links</h2>
+            <ul class="links-list">
+                <li>
+                    <a href="https://www.youtube.com/@NoirFrostWeaver" target="_blank" rel="noopener noreferrer">
+                        <span class="platform">YouTube</span>
+                        <span>@NoirFrostWeaver</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@noirfrostweaver?_r=1&_t=ZP-98Jp4WEjSiF" target="_blank" rel="noopener noreferrer">
+                        <span class="platform">TikTok</span>
+                        <span>@noirfrostweaver</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitch.tv/noirfrostweaver" target="_blank" rel="noopener noreferrer">
+                        <span class="platform">Twitch</span>
+                        <span>noirfrostweaver</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 </html>
